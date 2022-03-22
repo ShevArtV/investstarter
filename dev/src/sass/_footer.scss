@@ -1,0 +1,11 @@
+.main-footer {
+  .nav-link {
+    color: #fff;
+    padding: $px-5 0;
+  }
+
+  .nav-link:hover {
+    color: $danger;
+    text-decoration: underline;
+  }
+}

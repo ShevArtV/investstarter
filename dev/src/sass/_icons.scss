@@ -1,0 +1,126 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot');
+  src:  url('../fonts/icomoon.eot#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf') format('truetype'),
+  url('../fonts/icomoon.woff') format('woff'),
+  url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-auto:before {
+  content: "\e908";
+}
+.icon-auto-service:before {
+  content: "\e909";
+}
+.icon-auto-wash:before {
+  content: "\e90a";
+}
+.icon-clothes-shop:before {
+  content: "\e90b";
+}
+.icon-dumbbell:before {
+  content: "\e90c";
+}
+.icon-eshop:before {
+  content: "\e90d";
+}
+.icon-grenade:before {
+  content: "\e90e";
+}
+.icon-health:before {
+  content: "\e90f";
+}
+.icon-instagram:before {
+  content: "\e910";
+}
+.icon-kids-bussiness:before {
+  content: "\e911";
+}
+.icon-medical-center:before {
+  content: "\e912";
+}
+.icon-newspaper:before {
+  content: "\e913";
+}
+.icon-office-chair:before {
+  content: "\e914";
+}
+.icon-phone-call:before {
+  content: "\e915";
+}
+.icon-site-exchange:before {
+  content: "\e916";
+}
+.icon-social-network:before {
+  content: "\e917";
+}
+.icon-sunset:before {
+  content: "\e918";
+}
+.icon-toolbox:before {
+  content: "\e919";
+}
+.icon-trolley:before {
+  content: "\e91a";
+}
+.icon-wifi-router:before {
+  content: "\e91b";
+}
+.icon-www:before {
+  content: "\e91c";
+}
+.icon-articles:before {
+  content: "\e900";
+}
+.icon-busines:before {
+  content: "\e901";
+}
+.icon-community:before {
+  content: "\e902";
+}
+.icon-events:before {
+  content: "\e903";
+}
+.icon-franchises:before {
+  content: "\e904";
+}
+.icon-projects:before {
+  content: "\e905";
+}
+.icon-ready:before {
+  content: "\e906";
+}
+.icon-startups:before {
+  content: "\e907";
+}
+.icon-telegram:before {
+  content: "\e91d";
+}
+.icon-fb:before {
+  content: "\e91f";
+}
+.icon-vk:before {
+  content: "\e91e";
+}
+.icon-whatsapp:before {
+  content: "\ea93";
+}

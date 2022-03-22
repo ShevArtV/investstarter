@@ -5,13 +5,13 @@ var gulp          = require('gulp'),
     autoprefixer  = require('gulp-autoprefixer'),
     sourcemaps    = require('gulp-sourcemaps'),
     purify        = require('gulp-purifycss'),
-
+    uncss         = require('gulp-uncss'),
     concat        = require('gulp-concat'),
     uglify        = require('gulp-uglify'),
 
     notify        = require('gulp-notify');
 
-var assetsDir = '../src',
+var assetsDir = 'src',
     coreDir = '../public_html/',
     pagesSrc = coreDir+'**/*.html',
     chunkSrc = coreDir+'**/*.html'
@@ -22,9 +22,9 @@ var assetsDir = '../src',
 gulp.task('sass', function () {
     return gulp.src([assetsDir + '/sass/**/*.scss', '!' + assetsDir + '/sass/**/_*.scss'])
         .pipe(sourcemaps.init())
-        .pipe(sass({ outputStyle: 'compressed' }).on("error", notify.onError()))
+        .pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
         .pipe(autoprefixer(['last 5 versions']))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(productionDir + '/css/'))
 });
 
@@ -40,10 +40,10 @@ gulp.task('jsBuild', function () {
         }))
         .pipe(gulp.dest(productionDir + '/js/'))
 });
-
+// .pipe(purify([pagesSrc, chunkSrc, assetsDir+'/js/**/*']))
 gulp.task('cssBuild', function () {
     return gulp.src([productionDir + '/css/**/*.css','!' + productionDir + '/css/**/*.min.css'])
-        .pipe(purify([pagesSrc, chunkSrc, assetsDir+'/js/**/*']))
+        .pipe(uncss({html: [pagesSrc]}))
         .pipe(cssmin())
         .pipe(rename(function(path){
             path.extname = '.min.css';

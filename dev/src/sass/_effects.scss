@@ -1,0 +1,16 @@
+.shadow{
+  transition: all $fast;
+}
+.scale-onhover:hover {
+  transform: scale(1.03);
+}
+
+@each $name, $value in $theme-colors {
+  .shadow-#{$name}-onhover:hover {
+    .shadow {
+      box-shadow: 0 0 1rem 0 tint-color($value, 50%) !important;
+      transition: all $fast;
+    }
+  }
+}
+

@@ -82,10 +82,26 @@
     color: color-contrast(shade-color($value, 50%));
   }
 }
+
 a.text-white.active, a.text-white:hover, .nav-link.text-white.active, .nav-link.text-white:hover {
   color: shade-color($white, 20%) !important;
 }
+
+@import "mixins";
+
+@import "fonts";
+
+@import "icons";
+
 @import "spacers";
 
 @import "custom";
+
+@import "header";
+
+@import "nav";
+
+@import "footer";
+
+@import "effects";
 

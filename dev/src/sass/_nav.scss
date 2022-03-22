@@ -1,0 +1,29 @@
+.nav-pills.tab-nav{
+  .nav-item{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .nav-link{
+    background-color: transparent;
+    padding: $px-10 $px-10*3;
+    max-width: 100%;
+  }
+  .nav-link.active{
+    background-color: $danger;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-pills.tab-nav{
+    .nav-item{
+      margin-bottom: $px-10;
+    }
+    .nav-item:nth-child(3), .nav-item:nth-child(4){
+      margin-bottom: 0;
+    }
+    .nav-link{
+      padding: $px-5 $px-10*2;
+    }
+  }
+}
