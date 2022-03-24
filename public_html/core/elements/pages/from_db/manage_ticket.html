@@ -1,0 +1,107 @@
+{extends 'file:pages/from_db/base.html'}
+
+{block 'content'}
+{if !$_modx->isAuthenticated()}
+{'!redirect' | snippet}
+{/if}
+{set $rid =  $_modx->resource.id}
+{if $.get['tid']}
+{set $ticket_parent =  $.get['tid'] | resource: 'parent'}
+{/if}
+<div class="page__inner container" id="scroll-here">
+    <div id="ticket-preview-placeholder" style="display:none;"></div>
+    <div class="page__row">
+        {include 'file:chunks/from_db/aside.html'}
+        <div class="page__content">
+            <div class="page__project project">
+                <div class="project__header">
+                    <div class="project__title maintitle">
+                        {switch $rid}
+                            {case 13}
+                                {set $type = 'Категория: Проект'}
+
+                            {case 1685}
+                                {set $type = 'Категория: Продажа бизнеса'}
+
+                            {case 1862}
+                                {set $type = 'Категория: Инвестор'}
+
+                            {case 1684}
+                                {set $type = 'Категория: Франшиза'}
+                            {default}
+                                {set $type = 'Редактировать объявление'}
+                        {/switch}
+
+                        {$type}
+
+                        <div class="project__signboard">
+                            <picture>
+                                <source srcset="assets/template/img/icons/arms.webp" type="image/webp" />
+                                <img src="assets/template/img/icons/arms.png" alt="" />
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+
+                {if $ticket_parent == 2 || $rid == 13}
+                    {set $required = 'uploaded_files,valuta_project,price,payback,field,project_stage,country'}
+                {elseif $ticket_parent == 3 || $rid == 1862}
+                    {set $required = 'uploaded_files,valuta_project,price,payback,field,project_stage,country,price_to,payback_to'}
+                {elseif $ticket_parent == 1687 || $rid == 1685}
+                    {set $required = 'uploaded_files,valuta_project,price,payback,field,project_stage,country'}
+                {elseif $ticket_parent == 1689 || $rid == 1684}
+                    {set $required = 'uploaded_files,valuta_project,price,payback,field,project_stage,country,fr-year,fr-year-2,fr-article,fr-count,fr-count-2,fr-cost'}
+                {/if}
+
+                <div class="project__body">
+                    {'!TicketForm' | snippet: [
+                    'parents' => '2,3,1687,1689',
+                    'allowFiles' => 1,
+                    'tplFormCreate' => '@FILE chunks/from_db/ad_ticket_form.html',
+                    'tplFormUpdate' => '@FILE chunks/from_db/ad_ticket_form.html',
+                    'tplFiles' => '@FILE chunks/from_db/ticket_form_files.html',
+                    'tplImage' => '@FILE chunks/from_db/ticket_form_image.html',
+                    'requiredFields' => $required,
+                    'tplPreview' => '@FILE chunks/from_db/ad_ticket_preview.html',
+                    'validate' => 'uploaded_files:maxValue=^10^:minValue=^1^',
+                    'redirectUnpublished' => 1594,
+                    'allowedFields' => '
+                    parent,
+                    pagetitle,
+                    content,
+                    published,
+                    payback,
+                    field,
+                    price,
+                    region,
+                    city,
+                    country,
+                    project_stage,
+                    site,
+                    valuta_project,
+                    video,
+                    doc_1,
+                    doc_2,
+                    doc_3,
+                    doc_4,
+                    doc_5,
+                    doc_6,
+                    fr-year,
+                    fr-year-2,
+                    fr-count,
+                    fr-count-2,
+                    fr-cost,
+                    fr-article,
+                    price_to,
+                    payback_to'
+                    ]}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/assets/template/redaktor/editor.css">
+<script src="/assets/template/redaktor/ckeditor.js"></script>
+<script src="assets/template/redaktor/init.js"></script>
+{/block}

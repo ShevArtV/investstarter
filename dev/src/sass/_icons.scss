@@ -25,6 +25,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-business:before {
+  content: "\e901";
+}
+.icon-kids-business:before {
+  content: "\e911";
+}
+.icon-cafe:before {
+  content: "\e92a";
+}
+.icon-holiday:before {
+  content: "\e923";
+}
+.icon-develop:before {
+  content: "\e920";
+}
+.icon-finance:before {
+  content: "\e921";
+}
+.icon-food:before {
+  content: "\e922";
+}
+.icon-hotel:before {
+  content: "\e924";
+}
+.icon-parfum:before {
+  content: "\e925";
+}
+.icon-restaurant:before {
+  content: "\e926";
+}
+.icon-science:before {
+  content: "\e927";
+}
+.icon-service-for-bussiness:before {
+  content: "\e928";
+}
+.icon-truck:before {
+  content: "\e929";
+}
 .icon-auto:before {
   content: "\e908";
 }
@@ -51,9 +90,6 @@
 }
 .icon-instagram:before {
   content: "\e910";
-}
-.icon-kids-bussiness:before {
-  content: "\e911";
 }
 .icon-medical-center:before {
   content: "\e912";
@@ -91,9 +127,6 @@
 .icon-articles:before {
   content: "\e900";
 }
-.icon-busines:before {
-  content: "\e901";
-}
 .icon-community:before {
   content: "\e902";
 }
@@ -121,6 +154,15 @@
 .icon-vk:before {
   content: "\e91e";
 }
+.icon-equalizer:before {
+  content: "\e992";
+}
+.icon-heart:before {
+  content: "\e9da";
+}
 .icon-whatsapp:before {
   content: "\ea93";
+}
+.icon-telegram1:before {
+  content: "\ea95";
 }

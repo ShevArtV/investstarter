@@ -15120,6 +15120,58 @@ a.text-white.active, a.text-white:hover, .nav-link.text-white.active, .nav-link.
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-business:before {
+  content: "\e901";
+}
+
+.icon-kids-business:before {
+  content: "\e911";
+}
+
+.icon-cafe:before {
+  content: "\e92a";
+}
+
+.icon-holiday:before {
+  content: "\e923";
+}
+
+.icon-develop:before {
+  content: "\e920";
+}
+
+.icon-finance:before {
+  content: "\e921";
+}
+
+.icon-food:before {
+  content: "\e922";
+}
+
+.icon-hotel:before {
+  content: "\e924";
+}
+
+.icon-parfum:before {
+  content: "\e925";
+}
+
+.icon-restaurant:before {
+  content: "\e926";
+}
+
+.icon-science:before {
+  content: "\e927";
+}
+
+.icon-service-for-bussiness:before {
+  content: "\e928";
+}
+
+.icon-truck:before {
+  content: "\e929";
+}
+
 .icon-auto:before {
   content: "\e908";
 }
@@ -15154,10 +15206,6 @@ a.text-white.active, a.text-white:hover, .nav-link.text-white.active, .nav-link.
 
 .icon-instagram:before {
   content: "\e910";
-}
-
-.icon-kids-bussiness:before {
-  content: "\e911";
 }
 
 .icon-medical-center:before {
@@ -15208,10 +15256,6 @@ a.text-white.active, a.text-white:hover, .nav-link.text-white.active, .nav-link.
   content: "\e900";
 }
 
-.icon-busines:before {
-  content: "\e901";
-}
-
 .icon-community:before {
   content: "\e902";
 }
@@ -15248,8 +15292,20 @@ a.text-white.active, a.text-white:hover, .nav-link.text-white.active, .nav-link.
   content: "\e91e";
 }
 
+.icon-equalizer:before {
+  content: "\e992";
+}
+
+.icon-heart:before {
+  content: "\e9da";
+}
+
 .icon-whatsapp:before {
   content: "\ea93";
+}
+
+.icon-telegram1:before {
+  content: "\ea95";
 }
 
 .p-05 {
@@ -22889,9 +22945,78 @@ a i, .btn i, i i, img i {
   aspect-ratio: 7.7;
 }
 
+.min-height-typed {
+  min-height: 3.8892em;
+}
+
+.js-cookie-block {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.typed-cursor {
+  font-size: 2.11128em;
+}
+
+.favorites_banner {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  -webkit-box-shadow: -2px -1px 20px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: -2px -1px 20px 0px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 10;
+  padding: 5px 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.favorites_banner.active {
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.right-0 {
+  right: 0 !important;
+}
+
+.search-link {
+  right: 12%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 1400px) {
+  .search-link {
+    right: 13%;
+  }
+
+  .min-height-typed {
+    min-height: 6.1116em;
+  }
+}
 @media (max-width: 1199px) {
   body {
     font-size: 16px;
+  }
+
+  .search-link {
+    right: 14%;
+  }
+
+  .min-height-typed {
+    min-height: 5.556em;
   }
 }
 @media (max-width: 992px) {
@@ -22905,23 +23030,38 @@ a i, .btn i, i i, img i {
   .stage-item:nth-child(3), .stage-item:nth-child(4) {
     margin-bottom: 0;
   }
+
+  .search-link {
+    right: 90px;
+  }
+
+  .min-height-typed {
+    min-height: 5.556em;
+  }
+}
+@media (max-width: 767px) {
+  .min-height-typed {
+    min-height: 6.1116em;
+  }
 }
 @media (max-width: 576px) {
   .stage-item:nth-child(3) {
     margin-bottom: 5.0004em;
   }
+
+  .h1, h1 {
+    font-size: 2em;
+  }
+
+  .min-height-typed {
+    min-height: 8.334em;
+  }
 }
 .main-header {
   position: relative;
-}
-.main-header:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  opacity: 0.7;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .main-header .logo {
   max-height: 65px;
@@ -22975,11 +23115,17 @@ a i, .btn i, i i, img i {
 }
 .main-footer .nav-link {
   color: #fff;
-  padding: 0.2778em 0;
+  padding: 0;
 }
 .main-footer .nav-link:hover {
   color: #d1004a;
   text-decoration: underline;
+}
+
+.transition-fast {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .shadow {

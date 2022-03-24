@@ -12,7 +12,7 @@ var gulp          = require('gulp'),
     notify        = require('gulp-notify');
 
 var assetsDir = 'src',
-    coreDir = '../public_html/',
+    coreDir = '../public_html/core/elements/',
     pagesSrc = coreDir+'**/*.html',
     chunkSrc = coreDir+'**/*.html'
     productionDir = '../public_html/assets/project_files';
@@ -32,6 +32,8 @@ gulp.task('jsBuild', function () {
     return gulp.src([
         'node_modules/bootstrap/dist/js/bootstrap.bundle.js',
         'node_modules/swiper/swiper-bundle.js',
+        'node_modules/typed.js/lib/typed.js',
+        'node_modules/jquery/dist/jquery.js',
         assetsDir + '/js/**/*.js',
         '!'+assetsDir + '/js/**/*.min.js'])
         .pipe(uglify())

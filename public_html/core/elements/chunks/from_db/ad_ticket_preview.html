@@ -1,0 +1,238 @@
+<div class="col-md-12">
+    <div class="textpage">
+        <h1>{$pagetitle}</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="textpage">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="project">
+                            <div class="info">
+                                {if $previews | count}
+                                <div class="item">
+                                    <div class="project__media">
+                                        {foreach $previews as $preview}
+                                        <div class="project__img">
+                                            <a href="{$preview}">
+                                                <img src="{$preview}">
+                                            </a>
+                                        </div>
+                                        {/foreach}
+                                    </div>
+                                </div>
+                                {/if}
+
+                                <div class="item">
+                                    <h4>ОПИСАНИЕ ОБЪЯВЛЕНИЯ:</h4>
+                                    <div id="content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="item zm-author" id="one">
+                <div class="project__item">
+                    <div class="project__avatar">
+                        <img src="{$_modx->user.id | userinfo: 'photo'}" style="width:100px; height:100px; object-fit:cover;" alt="">
+                    </div>
+
+                    <div class="project__info">
+                        <h4>Пользователь:</h4>
+                        <a href="#">{$_modx->user.id | forum_user_info: 'fullname'}</a>
+                        <a href="#" class="btn btn-primary submit send-messages send-messages_users">Написать сообщение</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="zm-table">
+                {if $field}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Отрасль:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$field}
+                    </div>
+                </div>
+                {/if}
+
+                {if $country}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Страна:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$country}
+                    </div>
+                </div>
+                {/if}
+
+                {if $region | count}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Регион:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$region | join: ','}
+                    </div>
+                </div>
+                {/if}
+
+                {if $payback}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Срок окупаемости:
+                    </div>
+                    <div class="zm-table__desc">
+                    {$payback_to?'от':''} {$payback} {$payback_to?'до '~$payback_to:''}
+                    </div>
+                </div>
+                {/if}
+
+                {if $project_stage}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Стадия проекта:
+                    </div>
+                    <div class="zm-table__desc">
+                        {switch $project_stage}
+                        {case 1}
+                        Есть идея
+                        {case 2}
+                        Собрана команда
+                        {case 3}
+                        Работает без прибыли
+                        {case 4}
+                        Уже приносит прибыль
+                        {/switch}
+                    </div>
+                </div>
+                {/if}
+
+                {if $site}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Сайт:
+                    </div>
+                    <div class="zm-table__desc">
+                        <a href="#" rel="nofollow" target="_blank">{$site}</a>
+                    </div>
+                </div>
+                {/if}
+
+                {if $video}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Видео:
+                    </div>
+                    <div class="zm-table__desc">
+                        <a href="#" rel="nofollow" target="_blank">{$video}</a>
+                    </div>
+                </div>
+                {/if}
+
+                {if $price}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Сумма:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$price_to?'от':''} {$price} {$price_to?'до '~$price_to:''} {$valuta_project}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-year']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Год основания компании:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-year']}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-year-2']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Год основания франшизы:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-year-2']}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-count']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Франшизных предприятий:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-count']}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-count-2']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Собственных предприятий:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-count-2']}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-cost']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Средний оборот в месяц:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-cost']}
+                    </div>
+                </div>
+                {/if}
+
+                {if $_pls['fr-article']}
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Товарный знак зарегистрирован:
+                    </div>
+                    <div class="zm-table__desc">
+                        {$_pls['fr-article']}
+                    </div>
+                </div>
+                {/if}
+
+                <div class="zm-table__row">
+                    <div class="zm-table__title">
+                        Дата публикации:
+                    </div>
+                    <div class="zm-table__desc">
+                        {'' | date: 'd.m.Y'}
+                    </div>
+                </div>
+            </div>
+
+            <div class="item textpage" id="doc-wrap" style="display: none;">
+                <h4>Документы:</h4>
+                <a id="doc_1_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Презентация</a>
+                <a id="doc_2_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Бизнес-план</a>
+                <a id="doc_3_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Технико-экономическое обоснование</a>
+                <a id="doc_4_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Финансовая модель</a>
+                <a id="doc_5_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Маркетинговое исследование</a>
+                <a id="doc_6_link" href="#" target="_blank" style="display: none;margin-bottom:10px;">Дополнительные материалы</a>
+            </div>
+        </div>
+    </div>
+</div>

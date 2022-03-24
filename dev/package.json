@@ -34,6 +34,7 @@
     "js-datepicker": "^5.18.0",
     "postcss": "^8.4.5",
     "swiper": "^7.4.1",
+    "typed.js": "^2.0.12",
     "watermarkjs": "^2.1.1"
   }
 }

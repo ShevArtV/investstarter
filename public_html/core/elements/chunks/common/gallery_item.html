@@ -1,0 +1,25 @@
+{if $files?}
+    {foreach $files as $file}
+        {set $img = $file['main'] | pThumb: 'w=300&h=170&zc=1&f=webp'}
+        {set $alt = $file['name']}
+    {/foreach}
+{/if}
+
+{if !$img}
+    {set $url = '!pdoResources' | snippet:[
+        'class' => 'TicketFile',
+        'where' => ['parent' => $resources, 'type' => 'image'],
+        'sortby' => 'rank',
+        'sortdir' => 'ASC',
+        'limit' => '1',
+        'tpl' => '@INLINE {$url}'
+    ]}
+    {set $img = $url | pThumb: 'w=300&h=170&zc=1&f=webp'}
+{/if}
+
+{if !$img}
+    {set $img = 'kartinki/2504/active-vs-passive-investment-448025.jpg' | pThumb: 'w=300&h=170&zc=1&f=webp'}
+    {set $alt = 'Фото отсутствует'}
+{/if}
+
+<img data-src="{$img}" width="300" height="170" class="w-100 aspect-ratio-1-8" alt="{$alt}">

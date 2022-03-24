@@ -22,41 +22,101 @@ a, .btn, i, img {
     background-image: url('../img/common/title-decor.png');
     max-width: $px-10*3;
     border-radius: 50rem;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
   }
 }
-.left-45{
+
+.left-45 {
   left: $px-15*3;
 }
 
-.video-wrap{
+.video-wrap {
   aspect-ratio: 1.8;
   background-color: $dark;
   overflow: hidden;
-  iframe{
+
+  iframe {
     width: 100%;
     height: 100%;
   }
 }
-.bg-line{
-    background-size: 50% 50%;
-    background-repeat: repeat-x;
-    background-position: center;
+
+.bg-line {
+  background-size: 50% 50%;
+  background-repeat: repeat-x;
+  background-position: center;
 }
 
-.min-height-50{
+.min-height-50 {
   min-height: $px-10*5;
 }
-.aspect-ratio-1-8{
+
+.aspect-ratio-1-8 {
   aspect-ratio: 1.8;
 }
-.aspect-ratio-7-7{
+
+.aspect-ratio-7-7 {
   aspect-ratio: 7.7;
 }
+
+.min-height-typed{
+  min-height: $px-10 * 7;
+}
+
+.js-cookie-block {
+  background-color: rgba(0, 0, 0, .85);
+}
+
+.typed-cursor {
+  font-size: $h2-font-size;
+}
+
+.favorites_banner {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  box-shadow: -2px -1px 20px 0px rgb(0, 0, 0, 20%);
+  background: #fff;
+  z-index: 10;
+  padding: 5px 0;
+  transition: all $fast;
+
+}
+.favorites_banner.active{
+  bottom: 0;
+  transition: all $fast;
+}
+.right-0{
+  right:0 !important;
+}
+.search-link{
+  right: 12%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1400px) {
+  .search-link{
+    right: 13%;
+  }
+  .min-height-typed{
+    min-height: $px-10 * 11;
+  }
+}
+
 @media (max-width: 1199px) {
   body {
     font-size: 16px;
+  }
+  .search-link{
+    right: 14%;
+  }
+  .min-height-typed{
+    min-height: $px-10 * 10;
   }
 }
 
@@ -64,22 +124,37 @@ a, .btn, i, img {
   body {
     font-size: 14px;
   }
-  .stage-item{
+  .stage-item {
     margin-bottom: $px-10 * 9;
-    &:nth-child(3), &:nth-child(4){
+
+    &:nth-child(3), &:nth-child(4) {
       margin-bottom: 0;
     }
+  }
+  .search-link{
+    right: 90px;
+  }
+  .min-height-typed{
+    min-height: $px-10 * 10;
   }
 }
 
 @media (max-width: 767px) {
-
+  .min-height-typed{
+    min-height: $px-10 * 11;
+  }
 }
 
 @media (max-width: 576px) {
-  .stage-item{
-    &:nth-child(3){
+  .stage-item {
+    &:nth-child(3) {
       margin-bottom: $px-10 * 9;
     }
+  }
+  .h1, h1 {
+    font-size: 2em;
+  }
+  .min-height-typed{
+    min-height: $px-10 * 15;
   }
 }

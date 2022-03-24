@@ -1,0 +1,345 @@
+{set $rid = $rid}
+{if $.get['tid']}
+    {set $tid = $.get['tid']}
+    {set $pagetitle = $tid | resource: 'pagetitle' }
+    {set $parent = $tid | resource: 'parent' }
+    {set $price = $tid | resource: 'price' }
+    {set $payback = $tid | resource: 'payback' }
+    {set $site = $tid | resource: 'site' }
+    {set $field = $tid | resource: 'field' }
+    {set $project_stage = $tid | resource: 'project_stage' }
+    {set $country = $tid | resource: 'country' }
+    {set $video = $tid | resource: 'video' }
+    {set $region = $tid | resource: 'region' }
+    {set $fr_year = $tid | resource: 'fr-year' }
+    {set $fr_year_2 = $tid | resource: 'fr-year-2' }
+    {set $fr_article = $tid | resource: 'fr-article' }
+    {set $fr_count = $tid | resource: 'fr-count' }
+    {set $fr_count_2 = $tid | resource: 'fr-count-2' }
+    {set $price_to = $tid | resource: 'price_to' }
+    {set $payback_to = $tid | resource: 'payback_to' }
+    {set $valuta_project = $tid | resource: 'valuta_project' }
+{/if}
+
+{switch $rid}
+    {case 13}
+        {set $parent = 2}
+    {case 1685}
+        {set $parent = 1689}
+    {case 1862}
+        {set $parent = 3}
+    {case 1684}
+        {set $parent = 1687}
+{/switch}
+
+<input name="parent" value="{$parent}" type="hidden">
+<input name="published" value="0" type="hidden">
+<div class="form-project__row">
+    <!-- right column -->
+    <div class="form-project__column">
+        <!-- pagetitle -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Название объявления <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="pagetitle" value="{$pagetitle?:''}" maxlength="50" id="ticket-pagetitle" placeholder="Макcимум 50 символов"
+                       class="input"/>
+                <span class="error"></span>
+            </div>
+        </div>
+
+        {set $classes = 'js__autocomplete js-select2-theme-multiple'}
+        {set $multiple = 'multiple="multiple"'}
+        {if $parent != 3}
+            {set $classes = 'form-pay__select select'}
+            {set $multiple = ''}
+        {$files}
+        {/if}
+
+        <!-- site -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Сайт</div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="site" value="{$site?:''}" placeholder="" class="input"/>
+            </div>
+        </div>
+        <!-- currency -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Валюта <span>*</span></div>
+            <div class="form-pay__select select">
+                <select name="valuta_project">
+                    <option value=""></option>
+                    {set $rows = json_decode(1591 | resource : 'valuta', true)}
+                    {foreach $rows as $row}
+                    <option value="{$row.field}" {$row.field == $valuta_project? 'selected':''}> {$row.field}</option>
+                    {/foreach}
+                </select>
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- price -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Сумма <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="price" placeholder="" value="{$price?:''}" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- payback -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Срок окупаемости, мес. <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="payback" value="{$payback?:''}" placeholder="" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+
+        {if $parent == 1689}
+        <!-- fr-year -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Год основания компании: <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-year" placeholder="" value="{$fr_year?:''}" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- fr-year-2 -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Год основания франшизы: <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-year-2" placeholder="" value="{$fr_year_2?:''}"  class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- fr-article -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Товарный знак зарегистрирован:</div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-article" placeholder="" value="{$fr_article?:''}" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        {/if}
+
+        {if $parent == 3}
+        <input type="hidden" name="uploded_files" value="1">
+        <!-- price_to -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Сумма до <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="price_to" value="{$price_to?:''}" placeholder="" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        {/if}
+    </div>
+    <!-- /right column -->
+
+    <!-- left column -->
+    <div class="form-project__column">
+        <!-- field -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Отрасль <span>*</span></div>
+            <div class="form-pay__select select">
+                <select name="field" class="{$classes}" {$multiple}>
+                    <option value="" disabled>Выбрать из списка</option>
+                    {if !$multiple}
+                    {'dropDown' | snippet: [ 'list' => 'field_list', 'selected' => $field]}
+                    {else}
+                    {'dropDown' | snippet: [ 'list' => 'field_list', 'get_many' => $field]}
+                    {/if}
+                </select>
+                <span class="error"></span>
+            </div>
+        </div>
+        {if $parent == 2}
+        <!-- project_stage -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Стадия проекта <span>*</span></div>
+            <div class="form-pay__select select">
+                <select name="project_stage">
+                    {$project_stage | projectStage}
+                </select>
+                <span class="error"></span>
+            </div>
+        </div>
+        {/if}
+        <!-- video -->
+        <div class="form-project__line">
+            <div class="description">Запишите видео — оно поможет лучше оценить Ваше предложение.</div>
+            <div class="form-pay__title">Видео c YouTube</div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="video" value="{$video?:''}" maxlength="50" id="ticket-video" placeholder="Ссылка на видео" class="input"/>
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- country -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Страна <span>*</span></div>
+            <div class="form-pay__select select">
+                <select name="country" class="js__autocomplete js_change_location js_country" data-all="1" data-class="glRegion">
+                    <option value=""></option>
+                    <option value="Международный проект">Международный проект</option>
+                    {set $rows = json_decode(1591 | resource : 'country_region', true)}
+                    {foreach $rows as $row}
+                    <option value="{$row.names}" {$row.names== $country ? 'selected' :''} data-key="{$row.key}"> {$row.names}</option>
+                    {/foreach}
+                </select>
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- region -->
+        {if $country == 'Международный проект'}
+        {set $dnone = 'style="display:none;"'}
+        {/if}
+        <div class="form-project__line js_region_block" {$dnone}>
+            <div class="form-pay__title">Регион <span>*</span></div>
+            <div class="form-pay__select select">
+                <select name="region[]" class="js__autocomplete js_change_location js_region js-select2-theme-multiple" multiple="multiple" data-class="glCity">
+                    <option value="Все регионы">Все регионы</option>
+                    {foreach $rows as $row}
+                    {set $regions = $row.region | fromJSON}
+                    {set $curRegions = $region | split: '||'}
+                    {foreach $regions as $region}
+                    <option value="{$region.name}" {($region.name in list $curRegions) ? 'selected' : ''} data-key="{$row.names}"> {$region.name}</option>
+                    {/foreach}
+                    {/foreach}
+                </select>
+            </div>
+        </div>
+
+        {if $parent == 1689}
+        <!-- fr-count -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Франшизных предприятий: <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-count" placeholder="" value=""  class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- fr-count-2 -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Собственных предприятий: <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-count-2" placeholder="" value="" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        <!-- fr-cost -->
+        <div class="form-franchise__line">
+            <div class="form-pay__title">Средний оборот в месяц: <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="fr-cost" placeholder="" value="" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        {/if}
+
+        {if $parent == 3}
+        <!-- payback_to -->
+        <div class="form-project__line">
+            <div class="form-pay__title">Срок окупаемости до, мес. <span>*</span></div>
+            <div class="form-pay__input">
+                <input type="text" autocomplete="off" name="payback_to" value="{$payback_to?:''}" placeholder="" class="input">
+                <span class="error"></span>
+            </div>
+        </div>
+        {/if}
+
+    </div>
+    <!-- /left column -->
+</div>
+
+<div class="add__img">
+    Для добавления изображений в описание воспользуйтесь следующей инструкцией
+    <a href="{2306 | url}" target="blank">Загрузка изображений</a>
+</div>
+
+<!-- content -->
+<div class="form-project__line">
+    <div class="form-pay__title">Описание объявления <span>*</span></div>
+    <div class="form-pay__input">
+        <textarea
+                placeholder="Опишите свой проект, укажите информацию по объему рынка,
+                востребованности Вашего продукта и о каналах сбыта, об условиях привлечения инвестиций и т.д"
+                name="content" id="ticket-editor" class="input">{$content?:''}
+        </textarea>
+        <span class="error"></span>
+    </div>
+</div>
+<!-- /content -->
+
+<!-- documents -->
+<div class="form-project__footer">
+    <div class="form-project__item">
+        <input type="file" class="form-project__input" name="doc_1" id="doc_1"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_1"></span>
+        <label for="doc_1" class="input__label">
+            <span class="form-project__text">Презентация</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+    <div class="form-project__item">
+        <input type="file" name="doc_2" id="doc_2" class="form-project__input"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_2"></span>
+        <label for="doc_2" class="input__label">
+            <span class="form-project__text">Бизнес-план</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+    <div class="form-project__item">
+        <input type="file" class="form-project__input" name="doc_3" id="doc_3"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_3"></span>
+        <label for="doc_3" class="input__label">
+            <span class="form-project__text">Технико-экономическое обоснование</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+    <div class="form-project__item">
+        <input type="file" class="form-project__input" name="doc_4" id="doc_4"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_4"></span>
+        <label for="doc_4" class="input__label">
+            <span class="form-project__text">Финансовая Модель</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+    <div class="form-project__item">
+        <input type="file" class="form-project__input" name="doc_5" id="doc_5"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_5"></span>
+        <label for="doc_5" class="input__label">
+            <span class="form-project__text">Маркетинговое исследование</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+    <div class="form-project__item">
+        <input type="file" class="form-project__input" name="doc_6" id="doc_6"
+               accept=".jpg,.png,.gif,.jpeg,.bmp,.heic,.heif,.tiff,.tif,.webp,.raw,.svg,.doc,.docx,.docb,.dot,.dotx,.xls,.xlsx,.xlt,.xltx,.ppt,.pptx,.pot,.potx,.pps,.ppsx.txt,.rtf,.odt,.ott,.ods,.ots,.odp,.otp,.odg"/>
+        <span class="error" id="error_doc_6"></span>
+        <label for="doc_6" class="input__label">
+            <span class="form-project__text">Дополнительные материалы</span>
+            <span class="form-project__svg">
+                <img src="assets/project_files/img/common/clip.svg" alt="">
+            </span>
+        </label>
+    </div>
+</div>
+<!-- /documents -->
+
+<div class="form-btns-wrap">
+    <button type="submit" class="btn btn_r green_btn js-submit-btn" name="draft">Отправить на модерацию</button>
+    <button type="button" class="btn btn_r blue_btn preview" name="preview">Предпросмотр</button>
+</div>

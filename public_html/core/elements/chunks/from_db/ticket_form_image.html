@@ -1,0 +1,8 @@
+<div class="upload_img_item ticket-file {$deleted}{$new}" data-id="{$id}" data-path="{$url}">
+    <input type="hidden" name="previews[]" value="" >
+    {$_modx->resource.template == '41' ? '' : '<div class="desc">Первое фото будет заглавным</div>'}
+    <div class="img-wrap ticket-file-meta">
+        <a href="#" class="ticket-file-delete close">&times;</a>
+        <div class="upload_img_container" style="background-image: url({$url})"></div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<aside class="page__side">
+    <div class="page__item item">
+        {'!uaAvatar' | snippet: [
+        'tplAuth' => 'ua.auth'
+        'tplNoAuth' => 'ua.noauth'
+        'objectName' => 'UserAvatar'
+        'frontendCss' => '[[+assetsUrl]]css/web/default.css'
+        'frontendJs' => '[[+assetsUrl]]js/web/default.js'
+        'actionUrl' => '[[+assetsUrl]]action.php'
+        'thumbnail' => '{ "w":116,"h":116,"q":90,"zc":"1","bg":"","far":"C","f":"png" }'
+        ]}
+
+        <div class="item__body">
+            <div class="item__wrapper">
+                <ul class="item__list">
+                    <li class="[[*id:is=`12`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="[[~12]]" class="item__link [[*id:is=`12`:then=`item__link_active`:else=``]]">Персональные данные</a>
+                                <a href="[[~12]]" class="item__minilink">Изменить информацию</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="[[*id:is=`1850`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="[[~1850]]" class="item__link [[*id:is=`1850`:then=`item__link_active`:else=``]]">Мои объявления</a>
+                                <a href="[[~1850]]" class="item__minilink">Управление обьявлениями</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="[[*id:is=`2291`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="[[~2291]]" class="item__link [[*id:is=`2291`:then=`item__link_active`:else=``]]">Мои статьи</a>
+                                <a href="[[~2291]]" class="item__minilink">Управление статьями</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="[[*id:is=`1851`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="auth/izbrannoe.html" class="item__link [[*id:is=`1851`:then=`item__link_active`:else=``]]">Избранное</a>
+                                <a href="auth/izbrannoe.html" class="item__minilink">Управление избранным</a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="[[*id:is=`146`:or:is=`156`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="[[~146]]" class="item__link [[*id:is=`146`:or:is=`156`:then=`item__link_active`:else=``]]">Мои сообщения</a>
+                                <a href="[[~146]]" class="item__minilink">Входящие / Исходящие</a>
+                                <div class="item__quantity">[[!unreadMessageCount]]</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="[[*id:is=`1852`:then=`item__point`:else=`item__wrap`]]">
+                        <div class="item__wrap">
+                            <div class="item__wrapborder">
+                                <a href="[[~1852]]" class="item__link [[*id:is=`1852`:then=`item__link_active`:else=``]]">Платные услуги</a>
+                                <a href="[[~1852]]" class="item__minilink">Перечень услуг</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <a href="[[~141]]?service=logout" class="item__btn btn btn_r">Выйти из аккаунта</a>
+        </div>
+    </div>
+</aside>

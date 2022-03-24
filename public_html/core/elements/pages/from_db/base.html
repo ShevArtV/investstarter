@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+{'!msFavorites.initialize' | snippet}
+<head>
+    <meta charset="utf-8">
+    <base href="{$_modx->config.site_url}" />
+    <title>{$_modx->resource.seo_title ? $_modx->resource.seo_title : $_modx->resource.pagetitle ~ ' | ' ~ $_modx->config.site_name}</title>
+    <meta name="description" content="{$_modx->resource.seo_description}">
+    <meta name="keywords" content="{$_modx->resource.seo_keywords}">
+    <meta name="robots" content="[[+seoTab.robotsTag]]">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/index_new.css?v=33">
+    <link type="text/css" rel="stylesheet" href="{'!fileCashFix' | snippet : ['input' => 'assets/template/css/style.min.css']}">
+
+    <link type="text/css" rel="stylesheet" href="assets/template/css/developer.css?v=3">
+
+
+    <link rel="shortcut icon" href="assets/template/favicon.ico">
+    <!-- <meta name="robots" content="noindex, nofollow"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jgrowl@1.4.7/jquery.jgrowl.css">
+    <link rel="stylesheet" href="assets/template/css/register.css">
+</head>
+<body>
+
+<header>
+    [[$favorites_banner]]
+    [[++m1:notempty=`
+    <div class="banner-m1">
+        <a href="[[++m1_uri]]">
+            <img src="[[++m1]]" alt="">
+        </a>
+    </div>
+    `]]
+    <div class="header_background">
+        <div class="container">
+            <div  class="row">
+                <div class="col-md-3 col-6">
+                    <a href="/" class="header__logo"><img src="new_logo.svg" width="54%" class="logo_header" alt="InvestStarter"></a>
+                </div>
+                <div class="col-md-9 col-6">
+                    <ul class="nav justify-content-end navbar_usd">
+                        <li class="nav-item">
+                            <p><span>USD $</span><span> [[!CRcalc? &input=`1` &multiplier=`USD` &format=`[2, ".", " "]` &noZeros= `0`]]</span></p>
+                        </li>
+                        <li class="nav-item">
+                            <p><span>EUR €</span><span> [[!CRcalc? &input=`1` &multiplier=`EUR` &format=`[2, ".", " "]` &noZeros= `0`]]</span></p>
+                        </li>
+                        <li class="nav-item">
+                            <p><span>CNY &#165;	 </span><span>  [[!CRcalc? &input=`1` &multiplier=`CNY` &format=`[2, ".", " "]` &noZeros= `0`]]</span></p>
+                        </li>
+                        <li class="nav-item">
+                            <p><span>BBL</span><span>  [[!brent]][[#1591.barel]]</span></p>
+                        </li>
+                        <li class="lk_header"><a class="effect1" href='[[~12]]'><span>Личный кабинет</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12 top_menu">
+                    <ul class="nav justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~5]]">О компании</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~2]]">Проекты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~1687]]">Продажа бизнеса</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~1689]]">Франшизы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~3]]">Инвесторы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~8]]">Новости бизнеса</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~1703]]">Статьи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="[[~1704]]">Мероприятия</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="modal_delete">
+    <div class="modal_delete_close"></div>
+    <div class="modal_title">Вы точно уверены?</div>
+    <div class="modal_button_collection">
+        <a href="javascript:;" class="modal_button js_ads__delete_yes">Да</a>
+        <div class="modal_button modal_delete_close_button">Нет</div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <main class="page">
+        {block 'content'}
+        {$_modx->resource.content}
+        {/block}
+    </main>
+</div>
+
+<div class="overlay"></div>
+
+<footer>
+    <div class="container">
+        <div class="row bottom_menu">
+            <div class="col-lg-3">
+                <b>InvestStarter</b>
+                <ul>
+                    <li><a class="nav-link" href="[[~5]]">О компании</a></li>
+                    <li><a class="nav-link" href="[[~1695]]">Партнерам</a></li>
+                    <li><a class="nav-link" href="[[~1922]]">Рекламные продукты</a></li>
+                    <li><a class="nav-link" href="[[~1697]]">Пользовательское соглашение</a></li>
+                    <li><a class="nav-link" href="[[~1730]]">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <b>Сервисы для пользователей</b>
+                <ul>
+                    <li><a class="nav-link" href="[[~1699]]">Услуги по размещению на сайте</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 third_clmn">
+                <b>Объявления</b>
+                <ul>
+                    <li><a class="nav-link" href="[[~2]]">Проекты</a></li>
+                    <li><a class="nav-link" href="[[~1687]]">Продажа Бизнеса</a></li>
+                    <li><a class="nav-link" href="[[~1689]]">Франшизы</a></li>
+                    <li><a class="nav-link" href="[[~3]]">Инвесторы</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <b>Интересное</b>
+                <ul>
+                    <li><a class="nav-link" href="[[~8]]">Новости бизнеса</a></li>
+                    <li><a class="nav-link" href="[[~1703]]">Статьи</a></li>
+                    <li><a class="nav-link" href="[[~1704]]">Мероприятия</a></li>
+
+                </ul>
+            </div>
+            <div class="col-lg-1 betwwen_icon">
+                <ul class="nav justify-content-center">[[$contact_image]]</ul>
+            </div>
+            <div class="col-lg-12">
+                <div class="footer__soc">
+                    [[++vk:notempty=`
+                    <a href="[[++vk]]" target="blank">
+                        <svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                        <path style="fill:#01579B;" d="M426.667,283.584v-13.163l68.693-85.888c10.758-13.467,16.624-30.188,16.64-47.424
+                        	c-0.012-16.808-13.635-30.431-30.443-30.443H406.72c-11.557-0.039-22.002,6.88-26.475,17.536
+                        	c-14.472,39.807-33.515,77.8-56.747,113.216c-7.151,5.611-17.003,6.287-24.853,1.707v-109.12
+                        	c-0.07-12.852-10.465-23.257-23.317-23.339h-93.995c-5.891-0.011-10.675,4.757-10.686,10.648c-0.005,2.84,1.123,5.565,3.134,7.571
+                        	l5.845,5.845c7.939,7.892,12.394,18.63,12.373,29.824v81.067c-1,1.021-2.288,1.713-3.691,1.984
+                        	c-3.958-0.611-7.552-2.662-10.091-5.76c-27.453-39.826-51.761-81.731-72.704-125.333c-1.817-3.586-5.495-5.845-9.515-5.845H27.733
+                        	C12.417,106.667,0,119.083,0,134.4c0,0,0,0,0,0v5.44c-0.018,22.5,6.255,44.557,18.112,63.68
+                        	c57.216,92.053,135.68,201.813,184.555,201.813h69.781c14.47-0.023,26.195-11.748,26.219-26.219v-18.261
+                        	c-0.005-10.769,8.721-19.503,19.49-19.507c5.182-0.002,10.151,2.058,13.811,5.726l44.288,44.288
+                        	c8.95,8.978,21.115,14.008,33.792,13.973h76.117c14.245-0.021,25.775-11.585,25.754-25.83c-0.01-6.818-2.719-13.355-7.535-18.181
+                        	L426.667,283.584z"/>
+                    </svg>
+                    </a>
+                    `]]
+
+                    [[++fb:notempty=`
+                    <a href="[[++fb]]" target="blank">
+                        <svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-6.932 0-5.046 7.85-5.322 9h-3.487v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877c.188-2.824-.761-5.016 2.051-5.016z" fill="#3b5999"/></svg>
+                    </a>
+                    `]]
+
+                    [[++yo:notempty=`
+                    <a href="[[++yo]]" target="blank">
+                        <svg height="512pt" viewBox="0 -77 512.00213 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m501.453125 56.09375c-5.902344-21.933594-23.195313-39.222656-45.125-45.128906-40.066406-10.964844-200.332031-10.964844-200.332031-10.964844s-160.261719 0-200.328125 10.546875c-21.507813 5.902344-39.222657 23.617187-45.125 45.546875-10.542969 40.0625-10.542969 123.148438-10.542969 123.148438s0 83.503906 10.542969 123.148437c5.90625 21.929687 23.195312 39.222656 45.128906 45.128906 40.484375 10.964844 200.328125 10.964844 200.328125 10.964844s160.261719 0 200.328125-10.546875c21.933594-5.902344 39.222656-23.195312 45.128906-45.125 10.542969-40.066406 10.542969-123.148438 10.542969-123.148438s.421875-83.507812-10.546875-123.570312zm0 0" fill="#f00"/><path d="m204.96875 256 133.269531-76.757812-133.269531-76.757813zm0 0" fill="#fff"/></svg>
+                    </a>
+                    `]]
+                    [[++inst:notempty=`
+                    <a href="[[++inst]]" target="blank">
+                        <svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="SVGID_1_" gradientTransform="matrix(0 -1.982 -1.844 0 -132.522 -51.077)" gradientUnits="userSpaceOnUse" x1="-37.106" x2="-26.555" y1="-72.705" y2="-84.047"><stop offset="0" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></linearGradient><path d="m1.5 1.633c-1.886 1.959-1.5 4.04-1.5 10.362 0 5.25-.916 10.513 3.878 11.752 1.497.385 14.761.385 16.256-.002 1.996-.515 3.62-2.134 3.842-4.957.031-.394.031-13.185-.001-13.587-.236-3.007-2.087-4.74-4.526-5.091-.559-.081-.671-.105-3.539-.11-10.173.005-12.403-.448-14.41 1.633z" fill="url(#SVGID_1_)"/><path d="m11.998 3.139c-3.631 0-7.079-.323-8.396 3.057-.544 1.396-.465 3.209-.465 5.805 0 2.278-.073 4.419.465 5.804 1.314 3.382 4.79 3.058 8.394 3.058 3.477 0 7.062.362 8.395-3.058.545-1.41.465-3.196.465-5.804 0-3.462.191-5.697-1.488-7.375-1.7-1.7-3.999-1.487-7.374-1.487zm-.794 1.597c7.574-.012 8.538-.854 8.006 10.843-.189 4.137-3.339 3.683-7.211 3.683-7.06 0-7.263-.202-7.263-7.265 0-7.145.56-7.257 6.468-7.263zm5.524 1.471c-.587 0-1.063.476-1.063 1.063s.476 1.063 1.063 1.063 1.063-.476 1.063-1.063-.476-1.063-1.063-1.063zm-4.73 1.243c-2.513 0-4.55 2.038-4.55 4.551s2.037 4.55 4.55 4.55 4.549-2.037 4.549-4.55-2.036-4.551-4.549-4.551zm0 1.597c3.905 0 3.91 5.908 0 5.908-3.904 0-3.91-5.908 0-5.908z" fill="#fff"/></svg>
+                    </a>
+                    `]]
+
+                    [[++tg:notempty=`
+                    <a href="[[++tg]]" target="blank">
+                        <svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z" fill="#039be5"/></svg>
+                    </a>
+                    `]]
+                </div>
+            </div>
+            <div class="col-lg-6 second_footer"><a href="[[~1591]]"><img src="/new_logo.svg" width="168px" alt="[[*pagetitle]]"></a></div>
+            <div class="col-lg-6 second_footer footer_copy">© 2015-2021 investstarter.ru - Сообщество инвесторов и предпринимателей, включающее в себя сервисы по поиску инвестиций и проектов, продаже готового бизнеса и франшиз. Все права защищены.</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a) { m[i]=m[i]||function() { (m[i].a=m[i].a||[]).push(arguments) } ;
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) } )
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(40322865, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        } );
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/40322865" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</footer>
+
+<div class="politics_fixed">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="politics_fixed_container">
+                    <div class="politics_fixed_text_block">
+                        <p>Мы используем файлы cookie необходимые для правильной работы нашего веб-сайта и для того, чтобы вы могли использовать его функции.</p>
+                        <p>Находясь на сайте вы соглашаетесь с <a href="[[~1697]]">политикой конфиденциальности данных</a>.</p>
+                    </div>
+                    <div class="politics_fixed_button">Я согласен</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup-shadow"></div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.13/jquery.mask.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="/assets/js/jquery.inputmask.js"></script>
+<script src="/assets/js/jquery.bind-first-0.1.min.js"></script>
+<script src="/assets/js/jquery.inputmask-multi.js"></script>
+<script src="/assets/js/developer.js"></script>
+
+</body>
+</html>

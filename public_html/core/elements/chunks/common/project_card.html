@@ -1,0 +1,56 @@
+<div href="[[+uri]]" class="card">
+
+    <a href="[[+uri]]">
+        [[!ms2Gallery?
+        &tpl=`tpl_image4_inner`
+        &limit=`1`
+        &resources=`[[+id]]`
+        ]]
+    </a>
+
+
+    <div class="card-body">
+        <a href="[[+uri]]" style="text-decoration:none;">
+            <h5 class="card-title">[[+pagetitle]]</h5>
+            [[-+tv.region:is=``:then=`
+            <p class="card-text">[[+tv.field:replace=`||==, `]]</p>
+            `:else=`
+            <p class="card-text">
+                [[+tv.country:notempty=`[[+tv.country:is=`Международный проект`:then=`[[+tv.country]]`:else=`[[+tv.country]],`]]`]] [[+tv.country:is=`Международный проект`:then=``:else=`[[+tv.region:replace=`||==, `]]`]]
+            </p>
+            `]]
+            <p class="card-text">
+                [[+tv.country:notempty=`[[+tv.country:is=`Международный проект`:then=`[[+tv.country]]`:else=`[[+tv.country]],`]]`]] [[+tv.country:is=`Международный проект`:then=``:else=`[[+tv.region:replace=`||==, `]]`]]
+            </p>
+            [[-<p class="price-text">[[!price? &price=`[[+tv.tv.price]]`]] [[+tv.valuta_project:empty=`RUB`]]</p>]]
+
+            <p class="price-text">
+                [[+parent:is=`3`:then=`
+                [[+tv.tv.price:notempty=`от [[!price? &price=`[[+tv.tv.price]]`]] [[-+tv.valuta_project:empty=`RUB`]]`]]
+                <br>
+                [[+price_to:notempty=`до [[!price? &price=`[[+price_to]]`]] [[+tv.valuta_project:empty=`RUB`]]`]]
+                `:else=`
+                [[!price? &price=`[[+tv.tv.price]]`]] [[+tv.valuta_project:empty=`RUB`]]
+                `]]
+            </p>
+        </a>
+
+        <div class="card__bottom">
+            	<span class="msfavorites"
+                      data-click
+                      data-data-list="default"
+                      data-data-type="resource"
+                      data-data-key="[[+id]]"
+
+                      data-data-user="[[!+modx.user.id]]"
+                >
+				       <i class="msfavorites-icon-heart"></i>
+
+				</span>
+
+            <div class="card__ago">
+                [[+createdon:date=`%d.%m.%Y`]]
+            </div>
+        </div>
+    </div>
+</div>

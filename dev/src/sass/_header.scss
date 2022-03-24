@@ -1,9 +1,9 @@
 .main-header{
   position: relative;
-  &:before{
-    @include pseudoAbs(#000);
-    opacity: .7;
-  }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   .logo{
     max-height: 65px;
     width: auto;

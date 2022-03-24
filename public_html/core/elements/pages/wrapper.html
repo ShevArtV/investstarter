@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    {'!msFavorites.initialize' | snippet}
+    {set $site_url = $_modx->config.site_url}
+    {set $site_name = $_modx->config.site_name}
+    {set $logo = $_modx->config.logo}
+    {set $vk = $_modx->config.vk}
+    {set $tg = $_modx->config.tg}
+    {set $fb = $_modx->config.fb}
+    {set $fb = $_modx->config.fb}
+    {set $inst = $_modx->config.inst}
+
+    {set $rid = $_modx->resource.id}
+    {set $template = $_modx->resource.template}
+    {set $seotitle = $_modx->resource.seotitle}
+    {set $pagetitle = $_modx->resource.pagetitle}
+    {set $description = $_modx->resource.description}
+    {set $seokeywords = $_modx->resource.seokeywords}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.1, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="{$description}">
+    <meta name="keywords" content="{$seokeywords}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- verification -->
+    <meta name="google-site-verification" content="RavzEQ9YljctqHe3j86hfEXbf9yRHXMaclLL6jhu2lQ" />
+    <meta name="cmsmagazine" content="b01579e5d2300a0763941f3ce126cff0" />
+    <meta name="yandex-verification" content="7e3099958e54aaf7" />
+
+    <title>{$seotitle?:$pagetitle}</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- styles -->
+    <link rel="preload" href="/assets/project_files/css/main.min.css" as="style">
+    <link rel="stylesheet" href="/assets/project_files/css/main.min.css">
+
+    <link rel="preload" href="/assets/project_files/js/jquery.min.js" as="script">
+    <link rel="preload" href="/assets/project_files/js/main.min.js" as="script">
+
+    <base href="{$site_url}">
+</head>
+<body class="bg-background">
+{set $header_bg_img = ('assets/project_files/img/common/bg-header.jpg' | pThumb: 'w=1920&h=1080&zc=1&q=100&f=webp')}
+<header class="main-header" data-src="{$header_bg_img}">
+    <div class="container position-relative py-60">
+        <div class="row">
+            <a {$template != 1 ?: 'href="/"'} class="col-6">
+                {if $logo}
+                <img src="{$logo}" class="logo" width="200" height="65" alt="{$site_name}">
+                {/if}
+            </a>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+                <a href="{12 | url}" class="btn btn-outline-white"><span class="display-11">{12 | resource: 'pagetitle'}</span></a>
+            </div>
+
+            <ul class="nav justify-content-between px-15 mt-20">
+                {'pdoResources' | snippet:[
+                    'parents' => 0,
+                    'resources' => '5,2,1687,1689,3,8,1703,1704',
+                    'sortby' => '',
+                    'tpl' => '@FILE chunks/nav/header_menu_item.html'
+                ]}
+            </ul>
+        </div>
+        <div class="row pt-100">
+            <div class="col-md-9 mx-auto mb-15 min-height-typed text-white">
+                <span class="h2 js-self-print-text mb-0 fw-semi-bold"
+                data-text="Сервис по поиску инвестиций и проектов|Сервис по продаже франшиз|Сервис по продаже готового бизнеса|Сообщество инвесторов и предпринимателей"
+                ></span>
+            </div>
+            <form action="{1765 | url}" method="get" class="col-md-9 mx-auto search-form">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="query" value="{$_modx->getPlaceholder('mse.query')}" placeholder="Поиск">
+                    <a href="{1765 | url}" class="position-absolute text-decoration-none text-dark search-link"><i class="icon-equalizer h6 mb-0"></i></a>
+                    <button type="submit" class="btn btn-success">Найти</button>
+                </div>
+            </form>
+        </div>
+
+        {'!real_number' | snippet:[]}
+        <div class="row mt-60">
+            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-30">
+                <a href="{2 | url}" class="d-block text-decoration-none text-white">
+                    <div class="text-center">
+                        <span class="h1" data-counter="{$_modx->getPlaceholder('proekt')}">{$_modx->getPlaceholder('proekt')}</span>
+                    </div>
+                    <div class="bg-primary text-center rounded-1">
+                        <span class="text-white display-10">Количество проектов</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-30">
+                <a href="{3 | url}" class="d-block text-decoration-none text-white">
+                    <div class="text-center">
+                        <span class="h1" data-counter="{$_modx->getPlaceholder('investor')}">{$_modx->getPlaceholder('investor')}</span>
+                    </div>
+                    <div class="bg-success text-center rounded-1">
+                        <span class="text-white display-10">Количество инвесторов</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-30">
+                <a href="{1687 | url}" class="d-block text-decoration-none text-white">
+                    <div class="text-center">
+                        <span class="h1" data-counter="{$_modx->getPlaceholder('bisness')}">{$_modx->getPlaceholder('bisness')}</span>
+                    </div>
+                    <div class="bg-danger text-center rounded-1">
+                        <span class="text-white display-10">Количество продаж бизнеса</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-30">
+                <a href="{1689 | url}" class="d-block text-decoration-none text-white">
+                    <div class="text-center">
+                        <span class="h1" data-counter="{$_modx->getPlaceholder('fran')}">{$_modx->getPlaceholder('fran')}</span>
+                    </div>
+                    <div class="bg-warning text-center rounded-1">
+                        <span class="text-white display-10">Количество франшиз</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="favorites_banner" id="favorites_banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end py-15 pe-40 position-relative">
+                <div class="favorites_banner_count">
+                    {if $_modx->user.id > 0}
+                    <a href="{1861 | url}" class="btn btn-success rounded-2">Избранное</a>
+                    {else}
+                    <a href="{141 | url}" class="btn btn-primary text-white rounded-2">Войти</a>
+                    {/if}
+                </div>
+                <button class="js-close-btn text-light btn position-absolute right-0 top-0 h2 m-0 p-0">&times;</button>
+            </div>
+        </div>
+    </div>
+</div>
+<main>
+{block 'content'}{/block}
+</main>
+<footer class="bg-dark text-white py-60 main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-lg-40 mb-25">
+                <div>
+                    <span class="display-9 fw-bold">InvestStarter</span>
+                </div>
+                <ul class="list-unstyled">
+                    {'pdoResources' | snippet:[
+                    'parents' => 0,
+                    'resources' => '5,1695,1922,1697,1730',
+                    'sortby' => '',
+                    'tpl' => '@FILE chunks/nav/footer_menu_item.html'
+                    ]}
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-40 mb-25">
+                <div>
+                    <span class="display-9 fw-bold">Сервисы для пользователей</span>
+                </div>
+                <ul class="list-unstyled">
+                    <li>
+                        <a class="nav-link" href="{1699 | url}">
+                            <span class="display-11">{1699 | resource: 'pagetitle'}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-40 mb-25">
+                <div>
+                    <span class="display-9 fw-bold">Объявления</span>
+                </div>
+                <ul class="list-unstyled">
+                    {'pdoResources' | snippet:[
+                    'parents' => 0,
+                    'resources' => '2,1687,1689,3',
+                    'sortby' => '',
+                    'tpl' => '@FILE chunks/nav/footer_menu_item.html'
+                    ]}
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-lg-40 mb-25">
+                <div>
+                    <span class="display-9 fw-bold">Интересное</span>
+                </div>
+                <ul class="list-unstyled">
+                    {'pdoResources' | snippet:[
+                    'parents' => 0,
+                    'resources' => '8,1703,1704',
+                    'sortby' => '',
+                    'tpl' => '@FILE chunks/nav/footer_menu_item.html'
+                    ]}
+                </ul>
+            </div>
+
+            <ul class="col-12 list-unstyled d-flex mb-lg-40 mb-25">
+                {if $vk}
+                <li class="me-20">
+                    <a href="{$vk}" class="text-decoration-none d-block"><i class="icon-vk mb-0 h5"></i></a>
+                </li>
+                {/if}
+                {if $fb}
+                <li class="me-20">
+                    <a href="{$fb}" class="text-decoration-none d-block"><i class="icon-fb mb-0 h5"></i></a>
+                </li>
+                {/if}
+                {if $inst}
+                <li class="me-20">
+                    <a href="{$inst}" class="text-decoration-none d-block"><i class="icon-instagram mb-0 h5"></i></a>
+                </li>
+                {/if}
+                {if $tg}
+                <li class="me-20">
+                    <a href="{$tg}" class="text-decoration-none d-block"><i class="icon-telegram mb-0 h5"></i></a>
+                </li>
+                {/if}
+            </ul>
+
+            <div class="col-md-6 mb-md-0 mb-25">
+                <a  {$template != 1 ?: 'href="/"'}>
+                {if $logo}
+                <img src="{$logo}" class="logo" width="170" height="55" alt="{$site_name}">
+                {/if}
+                </a>
+            </div>
+            <div class="col-md-6">
+                <span class="display-11">
+                    © 2015-{'' | date: 'Y'} investstarter.ru - Сообщество инвесторов и предпринимателей, включающее в себя сервисы по поиску
+                инвестиций и проектов, продаже готового бизнеса и франшиз. Все права защищены.
+                </span>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="js-cookie-block position-fixed bottom-0 left-0 w-100 d-none">
+    <div class="container py-30">
+        <div class="row">
+            <div class="col-sm-10">
+                <div>
+                    <p class="mb-0 text-white">
+                        Мы используем файлы cookie необходимые для правильной работы нашего веб-сайта и для того, чтобы вы могли использовать его функции.
+                        Находясь на сайте вы соглашаетесь с <a href="{1697 | url}">политикой конфиденциальности данных</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-success js-cookie-agreed">Я согласен</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/project_files/js/jquery.min.js"></script>
+<script src="/assets/project_files/js/main.min.js"></script>
+</body>
+</html>

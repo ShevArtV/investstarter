@@ -1,0 +1,17 @@
+<div class="form-project__line">
+    <div class="mb-1" id="ticket-files-list" {$_modx->resource.template == '41' ? 'data-count="1"' : ''}>
+        <div class="form-pay__title js_title_drop images_title w-100">{$_modx->resource.template == '41' ? 'Заглавная картинка' : 'Фотографии'} <span>*</span></div>
+        <div class="form-pay__input">
+
+            <div class="upload_img_item_container">
+                <a id="ticket-files-select" href="javascript:;" class="form-pay__add add_images_button">+</a>
+                {$files}
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="uploaded_files" value="">
+    <span class="error error_uploaded_files d-block w-100"></span>
+    <div id="ticket-files-container" data-action="ticket/file/upload"></div>
+</div>
+
+
