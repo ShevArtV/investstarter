@@ -23039,6 +23039,16 @@ a i, .btn i, i i, img i {
     min-height: 5.556em;
   }
 }
+a.bg-info:hover .text-light {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+a.bg-info:hover .text-light {
+  color: #fff !important;
+}
+
 @media (max-width: 767px) {
   .min-height-typed {
     min-height: 6.1116em;
@@ -23111,6 +23121,13 @@ a i, .btn i, i i, img i {
   }
   .nav-pills.tab-nav .nav-link {
     padding: 0.2778em 1.1112em;
+  }
+
+  .main-header .nav-item {
+    width: 50%;
+  }
+  .main-header .nav-item:nth-child(even) {
+    text-align: right;
   }
 }
 .main-footer .nav-link {

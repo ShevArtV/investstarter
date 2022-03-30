@@ -1,4 +1,4 @@
-{set $rid = $rid}
+{set $rid = $_modx->resource.id}
 {if $.get['tid']}
     {set $tid = $.get['tid']}
     {set $pagetitle = $tid | resource: 'pagetitle' }

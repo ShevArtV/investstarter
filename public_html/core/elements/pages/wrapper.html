@@ -7,8 +7,8 @@
     {set $logo = $_modx->config.logo}
     {set $vk = $_modx->config.vk}
     {set $tg = $_modx->config.tg}
-    {set $fb = $_modx->config.fb}
-    {set $fb = $_modx->config.fb}
+   <!--  {set $fb = $_modx->config.fb} -->
+   <!--  {set $fb = $_modx->config.fb} -->
     {set $inst = $_modx->config.inst}
 
     {set $rid = $_modx->resource.id}
@@ -45,8 +45,7 @@
     <base href="{$site_url}">
 </head>
 <body class="bg-background">
-{set $header_bg_img = ('assets/project_files/img/common/bg-header.jpg' | pThumb: 'w=1920&h=1080&zc=1&q=100&f=webp')}
-<header class="main-header" data-src="{$header_bg_img}">
+<header class="main-header" data-src="assets/project_files/img/common/bg-header.jpg">
     <div class="container position-relative py-60">
         <div class="row">
             <a {$template != 1 ?: 'href="/"'} class="col-6">
@@ -208,9 +207,9 @@
                 </li>
                 {/if}
                 {if $fb}
-                <li class="me-20">
-                    <a href="{$fb}" class="text-decoration-none d-block"><i class="icon-fb mb-0 h5"></i></a>
-                </li>
+                <!--<li class="me-20">-->
+                <!--    <a href="{$fb}" class="text-decoration-none d-block"><i class="icon-fb mb-0 h5"></i></a>-->
+                <!--</li>-->
                 {/if}
                 {if $inst}
                 <li class="me-20">

@@ -14,12 +14,14 @@
         'limit' => '1',
         'tpl' => '@INLINE {$url}'
     ]}
-    {set $img = $url | pThumb: 'w=300&h=170&zc=1&f=webp'}
+    {set $img = $url}
 {/if}
 
 {if !$img}
-    {set $img = 'kartinki/2504/active-vs-passive-investment-448025.jpg' | pThumb: 'w=300&h=170&zc=1&f=webp'}
+    {set $img = 'kartinki/2504/active-vs-passive-investment-448025.jpg'}
     {set $alt = 'Фото отсутствует'}
 {/if}
-
-<img data-src="{$img}" width="300" height="170" class="w-100 aspect-ratio-1-8" alt="{$alt}">
+<picture>
+    <source srcset="{$img | pThumb: 'w=300&h=170&zc=1&f=webp'}" type="image/webp">
+    <img data-src="{$img}"  width="300" height="170" class="w-100 aspect-ratio-1-8" alt="{$alt}"/>
+</picture>

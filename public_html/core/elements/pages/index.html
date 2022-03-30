@@ -97,17 +97,17 @@
                     </div>
                 </a>
 
-                <a href="{1922 | url}" class="scale-onhover shadow-danger-onhover col-sm-6 mb-25 text-decoration-none">
+                <a href="{2316 | url}" class="scale-onhover shadow-danger-onhover col-sm-6 mb-25 text-decoration-none">
                     <div class="px-30 pb-25 pt-50 d-flex flex-column align-items-center justify-content-center bg-white rounded-2 shadow h-100">
                         <div class="">
                             <i class="icon-startups h1 text-danger"></i>
                         </div>
                         <div>
-                            <h6 class="fw-bold text-uppercase">{1922 | resource: 'pagetitle'}</h6>
+                            <h6 class="fw-bold text-uppercase">{2316 | resource: 'pagetitle'}</h6>
                         </div>
                         <div>
                             <p class="mb-0 text-center display-11">
-                                {1922 | resource: 'introtext'}
+                                {2316 | resource: 'introtext'}
                             </p>
                         </div>
                     </div>
@@ -178,7 +178,11 @@
                     <div class="row">
                         {set $allUrl = 1765 | url}
                         {foreach $categories[1765] as $key => $value}
-                        <a href="{$allUrl}{$value['params']}" class="col-lg-6 ps-80 d-flex align-items-center mb-20 text-dark text-decoration-none position-relative">
+                        {set $params = $value['params']}
+                        {if $key == 'Все отрасли'}
+                        {set $params = '?query=&amp;country=&amp;valuta_project=&amp;field=&amp;project_stage=&amp;payback_from=0&amp;payback_to=600&amp;price_from=0&amp;price_to=100000000000'}
+                        {/if}
+                        <a href="{$allUrl}{$params}" class="col-lg-6 ps-80 d-flex align-items-center mb-20 text-dark text-decoration-none position-relative">
                             <div class="position-absolute left-45">
                                 <i class="icon-{$value['icon']}"></i>
                             </div>
@@ -254,13 +258,16 @@
                     <a href="{2 | url}?ser=1&query=&country=&valuta_project=&field=&project_stage=1&payback_from=0&payback_to=600&price_from=0&price_to=100000000000"
                        class="text-decoration-none bg-info rounded-3 py-30 px-20 h-100 d-flex flex-column justify-content-between">
                         <div>
-                            <img data-src="{'assets/project_files/img/common/lamp.png' | pThumb: 'w=156&h=200&f=webp'}" width="156" height="200" class="ms-auto me-0 d-block mt--80" alt="">
+                            <picture>
+                                <source srcset="{'assets/project_files/img/common/lamp.png' | pThumb: 'w=156&h=200&f=webp'}" type="image/webp">
+                                <img data-src="assets/project_files/img/common/lamp.png"  width="156" height="200" class="ms-auto me-0 d-block mt--80" alt=""/>
+                            </picture>
                         </div>
                         <div>
-                            {set $stage1 = 'pdoResources' | snippet:['returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 1]]}
-                            {set $stage2 = 'pdoResources' | snippet:['returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 2]]}
-                            {set $stage3 = 'pdoResources' | snippet:['returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 3]]}
-                            {set $stage4 = 'pdoResources' | snippet:['returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 4]]}
+                            {set $stage1 = 'pdoResources' | snippet:['limit' => 0, 'returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 1]]}
+                            {set $stage2 = 'pdoResources' | snippet:['limit' => 0, 'returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 2]]}
+                            {set $stage3 = 'pdoResources' | snippet:['limit' => 0, 'returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 3]]}
+                            {set $stage4 = 'pdoResources' | snippet:['limit' => 0, 'returnIds' => 1, 'parents' => 2, 'includeTVs' => 'project_stage', 'where' => ['project_stage' => 4]]}
                             <h6 class="fw-bold text-uppercase">Есть <br> идея</h6>
                             <div>
                                 <span class="text-light display-10">Проектов:</span>
@@ -273,7 +280,10 @@
                     <a href="{2 | url}?ser=1&query=&country=&valuta_project=&field=&project_stage=2&payback_from=0&payback_to=600&price_from=0&price_to=100000000000"
                             class="text-decoration-none bg-info rounded-3 py-30 px-20 h-100 d-flex flex-column justify-content-between">
                         <div>
-                            <img data-src="{'assets/project_files/img/common/megafon.png' | pThumb: 'w=208&h=170&f=webp'}" width="208" height="170" class="ms-auto me-0 d-block mt--80" alt="">
+                            <picture>
+                                <source srcset="{'assets/project_files/img/common/megafon.png' | pThumb: 'w=208&h=170&f=webp'}" type="image/webp">
+                                <img data-src="assets/project_files/img/common/megafon.png"  width="208" height="170" class="ms-auto me-0 d-block mt--80" alt=""/>
+                            </picture>
                         </div>
                         <div>
                             <h6 class="fw-bold text-uppercase">Команда <br> собрана</h6>
@@ -288,7 +298,10 @@
                     <a href="{2 | url}?ser=1&query=&country=&valuta_project=&field=&project_stage=3&payback_from=0&payback_to=600&price_from=0&price_to=100000000000"
                        class="text-decoration-none bg-info rounded-3 py-30 px-20 h-100 d-flex flex-column justify-content-between">
                         <div>
-                            <img data-src="{'assets/project_files/img/common/rocket.png' | pThumb: 'w=156&h=177&f=webp'}" width="156" height="177" class="ms-auto me-0 d-block mt--80" alt="">
+                            <picture>
+                                <source srcset="{'assets/project_files/img/common/rocket.png' | pThumb: 'w=156&h=177&f=webp'}" type="image/webp">
+                                <img data-src="assets/project_files/img/common/rocket.png"  width="156" height="177" class="ms-auto me-0 d-block mt--80" alt=""/>
+                            </picture>
                         </div>
                         <div>
                             <h6 class="fw-bold text-uppercase">Работает <br> без прибыли</h6>
@@ -303,7 +316,10 @@
                     <a href="{2 | url}?ser=1&query=&country=&valuta_project=&field=&project_stage=4&payback_from=0&payback_to=600&price_from=0&price_to=100000000000"
                        class="text-decoration-none bg-info rounded-3 py-30 px-20 h-100 d-flex flex-column justify-content-between">
                         <div>
-                            <img data-src="{'assets/project_files/img/common/rocket-with-money.png' | pThumb: 'w=182&h=212&f=webp'}" width="182" height="212" class="ms-auto me-0 d-block mt--80" alt="">
+                            <picture>
+                                <source srcset="{'assets/project_files/img/common/rocket-with-money.png' | pThumb: 'w=182&h=212&f=webp'}" type="image/webp">
+                                <img data-src="assets/project_files/img/common/rocket-with-money.png"  width="182" height="212"  class="ms-auto me-0 d-block mt--80" alt=""/>
+                            </picture>
                         </div>
                         <div>
                             <h6 class="fw-bold text-uppercase">Уже приносит <br> прибыль</h6>
@@ -320,7 +336,7 @@
     <!-- /PROJECT STEPS -->
 
     {set $video = $_modx->resource.video}
-    {set $video_bg = 'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1920&h=247&f=webp'}
+    {set $video_bg = 'assets/project_files/img/common/bg-line.png'}
     {if $video}
     <!-- VIDEO -->
     <section class="py-50">
@@ -355,7 +371,7 @@
                 {'pdoResources' | snippet: [
                     'parents' => 2,
                     'limit' => 8,
-                    'includeTVs' => 'country,region,price,valuta_project',
+                    'includeTVs' => 'country,region,price,tv.price,tv.price_to,price_to,valuta_project',
                     'tpl' => '@FILE chunks/common/project_preview.html',
                     'tvPrefix' => '',
                     'sortby' => ['createdon' => 'DESC']
@@ -368,7 +384,10 @@
                 </div>
 
                 <div class="mt-40">
-                    <img src="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" class="img-fluid aspect-ratio-7-7" alt="">
+                    <picture>
+                        <source srcset="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" type="image/webp">
+                        <img data-src="assets/project_files/img/common/bg-line.png"  class="img-fluid aspect-ratio-7-7" alt=""/>
+                    </picture>
                 </div>
             </div>
         </div>
@@ -389,7 +408,7 @@
                 {'pdoResources' | snippet: [
                     'parents' => 1687,
                     'limit' => 8,
-                    'includeTVs' => 'country,region,price,valuta_project',
+                    'includeTVs' => 'country,region,price,tv.price,tv.price_to,price_to,valuta_project',
                     'tpl' => '@FILE chunks/common/project_preview.html',
                     'tvPrefix' => '',
                     'sortby' => ['createdon' => 'DESC']
@@ -402,7 +421,10 @@
                 </div>
 
                 <div class="mt-40">
-                    <img src="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" class="img-fluid aspect-ratio-7-7" alt="">
+                    <picture>
+                        <source srcset="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" type="image/webp">
+                        <img data-src="assets/project_files/img/common/bg-line.png"  class="img-fluid aspect-ratio-7-7" alt=""/>
+                    </picture>
                 </div>
             </div>
         </div>
@@ -423,7 +445,7 @@
                 {'pdoResources' | snippet: [
                     'parents' => 1689,
                     'limit' => 8,
-                    'includeTVs' => 'country,region,price,valuta_project',
+                    'includeTVs' => 'country,region,price,tv.price,tv.price_to,price_to,valuta_project',
                     'tpl' => '@FILE chunks/common/project_preview.html',
                     'tvPrefix' => '',
                     'sortby' => ['createdon' => 'DESC']
@@ -436,7 +458,10 @@
                 </div>
 
                 <div class="mt-40">
-                    <img src="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" class="img-fluid aspect-ratio-7-7" alt="">
+                    <picture>
+                        <source srcset="{'assets/project_files/img/common/bg-line.png' | pThumb: 'w=1290&h=165&zc=1&f=webp'}" type="image/webp">
+                        <img data-src="assets/project_files/img/common/bg-line.png"  class="img-fluid aspect-ratio-7-7" alt=""/>
+                    </picture>
                 </div>
             </div>
         </div>

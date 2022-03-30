@@ -23,11 +23,11 @@
         <div class="px-20 pb-20">
             <div class="mb-10">
                 <span class="text-black fw-bold text-uppercase display-9 d-block">
-                    {$parent == 3 ? 'от' : ''}   {$price | number : 0 : '.' : ' '} {$valute_project?: 'RUB'}
+                    {$parent == 3 ? 'от' : ''}   {($tv.price?:$price) | number: '0': '.': ' '} {$valute_project?: 'RUB'}
                 </span>
-                {if $price_to}
+                {if $price_to || $tv.price_to}
                 <span class="text-black fw-bold text-uppercase display-9 d-block">
-                    до  {$price_to | number : 0 : '.' : ' '} {$valute_project?: 'RUB'}
+                    до  {($tv.price_to?:$price_to) | number: '0': '.': ' '} {$valute_project?: 'RUB'}
                 </span>
                 {/if}
             </div>

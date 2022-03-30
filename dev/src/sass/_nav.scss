@@ -26,4 +26,12 @@
       padding: $px-5 $px-10*2;
     }
   }
+  .main-header{
+    .nav-item{
+      width: 50%;
+    }
+    .nav-item:nth-child(even){
+      text-align: right;
+    }
+  }
 }

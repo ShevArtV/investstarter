@@ -139,6 +139,13 @@ a, .btn, i, img {
   }
 }
 
+a.bg-info:hover .text-light{
+  transition: all $fast;
+}
+a.bg-info:hover .text-light{
+  color: #fff !important;
+}
+
 @media (max-width: 767px) {
   .min-height-typed{
     min-height: $px-10 * 11;
