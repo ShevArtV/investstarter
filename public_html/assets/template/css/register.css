@@ -1,0 +1,161 @@
+.zm-reg {
+  max-width: 544px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 90px;
+}
+
+.zm-reg__top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.zm-reg__top img {
+  width: 100%;
+}
+
+.zm-reg__form {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.zm-reg__wrap {
+  box-shadow: 0 0 16px rgba(168, 166, 166, 0.23);
+  background-color: #ffffff;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.zm-reg__title {
+  color: #7092be;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.zm-reg__subtitle {
+  color: #849bbb;
+  font-size: 21px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.zm-reg__icons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 25px;
+}
+
+.zm-reg__icons a {
+}
+
+.zm-reg__icons a img {
+}
+
+.zm-reg__group {
+  margin-bottom: 15px;
+}
+
+.zm-reg__group input {
+  border: 2px solid #7092be;
+  border-radius: 7px;
+  width: 290px;
+  height: 60px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #7092be;
+  text-align: center;
+}
+
+.zm__order {
+}
+
+.zm-reg__order {
+  padding: 0 10px;
+}
+
+.zm-reg__btn {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.zm-reg__btn a,
+.zm-reg__btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.zm-reg__btn_big a,
+.zm-reg__btn_big button {
+  height: 68px;
+  font-size: 24px;
+}
+
+.zm-reg__btn_blue {
+  box-shadow: 0 5px 0 #1f4576;
+  background: linear-gradient(41deg, #6c97fd 0, #406fe1 100%);
+}
+
+.zm-reg__btn_green {
+  box-shadow: 0 5px 0 #344935;
+  background-color: #0f7f1f;
+}
+
+.text-black {
+  color: #000;
+}
+
+.registration__minititle {
+  font-size: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.registration__minititle h5 {
+  font-size: 24px;
+}
+
+.registration__minititle .zm-reg__btn {
+  max-width: max-content;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+.registration__minititle .form-registration__body p{
+	color: #000;
+	font-size: 18px;
+}
+.registration__minititle .form-registration__body p.error {
+	font-size: 16px;
+	color: red;
+}
+.registration__minititle .form-registration{
+	margin-top: 160px;
+}
+.reg-info {
+  text-align: center;
+  font-size: 90%;
+  display: block;
+  line-height: 1.5;
+}
